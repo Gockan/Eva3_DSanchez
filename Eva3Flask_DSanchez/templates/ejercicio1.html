@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Ejercicio 1: Promedio y Asistencia</h2>
+<form method="POST">
+    <label for="nota1">Nota 1:</label>
+    <input type="number" name="nota1" required min="10" max="70"><br>
+    <label for="nota2">Nota 2:</label>
+    <input type="number" name="nota2" required min="10" max="70"><br>
+    <label for="nota3">Nota 3:</label>
+    <input type="number" name="nota3" required min="10" max="70"><br>
+    <label for="asistencia">Asistencia (%):</label>
+    <input type="number" name="asistencia" required min="0" max="100"><br><br>
+    <button type="submit">Enviar</button>
+</form>
+
+{% if resultado %}
+    {% if resultado.error %}
+        <p>Error: {{ resultado.error }}</p>
+    {% else %}
+        <p>Promedio: {{ resultado.promedio }}</p>
+        <p>Estado: {{ resultado.estado }}</p>
+    {% endif %}
+{% endif %}
+{% endblock %}
